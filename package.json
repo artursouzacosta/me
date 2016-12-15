@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "author": "J.Artur <joaoartur@renatosaraiva.net>",
-  "description": "A simple helpful robot for your Company",
+  "description": "Olá..",
   "dependencies": {
     "hubot": "^2.19.0",
     "hubot-diagnostics": "0.0.1",
