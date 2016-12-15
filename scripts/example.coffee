@@ -1,11 +1,5 @@
 module.exports = (robot) ->
-
-    robot.hear /(o+i+)|(e+i+)|(o+l+a+)/i, (res) ->
-        res.send "Olá!!!!!! Como vai você?"
-
-    robot.hear /(tudo bom\?)|(tudo bem\?)|(td certo\?)|(td bom\?)/i, (res) ->
-        res.send "Estou ótimo, obrigado por perguntar!"
-
+  
     robot.respond /open the (.*) doors/i, (res) ->
         doorType = res.match[1]
         if doorType is "pod bay"
