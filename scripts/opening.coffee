@@ -6,12 +6,7 @@ module.exports = (robot)->
         res.send "Hello friend! How are you?"
 
     robot.hear /(o+i+)|(e+i+)|(o+l+a+)/i, (res) ->
-        res.send "Oláaaa! :)\n\
-                Muito prazer em te conhecer!\n\
-                Eu sou apenas uma parte dele, mas adoraria conversar, você gostaria me conhecer melhor?\n\
-                Fique a vontade para me perguntar qualquer coisa e tentarei te responder, caso não consiga, entrarei em contato com o meu eu verdadeiro e concerteza te responderei em outro momento.\n\
-                Como vai você?\n\
-                Para saber o que você pode me perguntar, envie uma mensagem com o seguinte conteudo: 'O que posso perguntar?'"
+        res.send "Oláaaa! :)\nMuito prazer em te conhecer!\nEu sou apenas uma parte dele, mas adoraria conversar, você gostaria me conhecer melhor?\nFique a vontade para me perguntar qualquer coisa e tentarei te responder, caso não consiga, entrarei em contato com o meu eu verdadeiro e concerteza te responderei em outro momento.\nComo vai você?\nPara saber o que você pode me perguntar, envie uma mensagem com o seguinte conteudo: 'O que posso perguntar?'"
 
     robot.hear /(t+u+d+o+ (b+(o|e)+m+))|(c+e+r+t+(o)|(i+n+h+o+))|(e+i+)|(o+l+a+)\?/i, (res) ->
         res.send "Tudo sim, obrigado por perguntar!"
@@ -28,11 +23,7 @@ module.exports = (robot)->
          Infelizmente somente ele agora possui tal informação.\n Se você deseja ajuda-lo nessa nova descoberta você deve descobrir como encontra-lo, para isso,\n descobra onde eu moro."
 
     robot.hear /o que posso perguntar\?/i, (res) ->
-        res.send "Atualmente sou capaz de te responder as seguintes perguntas: \n \
-                  Onde vc mora?\n  \
-                  Onde vc trabalha?\n  \
-                  Qual é sua historia?\n  \
-                  Como te encontro?"
+        res.send "Atualmente sou capaz de te responder as seguintes perguntas: \nOnde vc mora?\nOnde vc trabalha?\nQual é sua historia?\nComo te encontro?"
 
     conversation = new DynamicConversation robot
 
