@@ -2,13 +2,16 @@ DynamicConversation = require 'hubot-dynamic-conversation'
 
 module.exports = (robot)->
 
+    robot.hear /(h+i+)|(h+e+l+o+)/i, (res) ->
+        res.send "Hello friend! How are you?"
+
     robot.hear /(o+i+)|(e+i+)|(o+l+a+)/i, (res) ->
-        res.send "Oláaaa! :)"
-        res.send "Muito prazer em te conhecer!"
-        res.send "Eu sou apenas uma parte dele, mas adoraria conversar, você gostaria me conhecer melhor?"
-        res.send "Fique a vontade para me perguntar qualquer coisa e tentarei te responder, caso não consiga, entrarei em contato com o meu eu verdadeiro e concerteza te responderei em outro momento."
-        res.send "Como vai você?"
-        res.send "Para saber o que você pode me perguntar, envie uma mensagem com o seguinte conteudo: 'O que posso perguntar?'"
+        res.send "Oláaaa! :)\n\
+                Muito prazer em te conhecer!\n\
+                Eu sou apenas uma parte dele, mas adoraria conversar, você gostaria me conhecer melhor?\n\
+                Fique a vontade para me perguntar qualquer coisa e tentarei te responder, caso não consiga, entrarei em contato com o meu eu verdadeiro e concerteza te responderei em outro momento.\n\
+                Como vai você?\n\
+                Para saber o que você pode me perguntar, envie uma mensagem com o seguinte conteudo: 'O que posso perguntar?'"
 
     robot.hear /(t+u+d+o+ (b+(o|e)+m+))|(c+e+r+t+(o)|(i+n+h+o+))|(e+i+)|(o+l+a+)\?/i, (res) ->
         res.send "Tudo sim, obrigado por perguntar!"
@@ -19,14 +22,17 @@ module.exports = (robot)->
     robot.hear /(de)? ?(onde|em que lugar) ((voc(ê|e))|(vc)) ((e|é)|(mora|vive))\?/i, (res) ->
         res.send "Eu sou do ipsep, um bairro localizado em Recife/PE."
 
-    robot.hear /qual +(a|é|é a)? sua hist(o|ó)ria\?/i, (res) ->
-        res.send "Meu nome é João Artur, eu foi criado por um cientista maluco num experimento que visava descobrir o segredo do universo. Infelizmente somente ele agora possui tal informação. E não foi possível repassar o conhecimento."
+
+    robot.hear /qual +(a|é|é a|e a)? ?sua hist(o|ó)ria\?/i, (res) ->
+        res.send "Meu nome é João Artur, eu foi criado por um cientista maluco num experimento que visava descobrir o segredo do universo. \n \
+         Infelizmente somente ele agora possui tal informação.\n Se você deseja ajuda-lo nessa nova descoberta você deve descobrir como encontra-lo, para isso,\n descobra onde eu moro."
 
     robot.hear /o que posso perguntar\?/i, (res) ->
-        res.send "Atualmente sou capaz de te responder as seguintes perguntas: "
-        res.send "Onde vc mora?"
-        res.send "Onde vc trabalha?"
-        res.send "Qual é sua historia?"
+        res.send "Atualmente sou capaz de te responder as seguintes perguntas: \n \
+                  Onde vc mora?\n  \
+                  Onde vc trabalha?\n  \
+                  Qual é sua historia?\n  \
+                  Como te encontro?"
 
     conversation = new DynamicConversation robot
 
