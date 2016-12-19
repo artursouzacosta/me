@@ -1,3 +1,5 @@
+path = require('path');
+
 module.exports = (robot) ->
   
     robot.respond /open the (.*) doors/i, (res) ->
@@ -70,6 +72,9 @@ module.exports = (robot) ->
       robot.messageRoom room, "I have a secret: #{secret}"
       
       res.send 'OK'
+
+    robot.router.get '/hubot/policy.txt', (req, res) ->
+      res.sendFile(path.join(__dirname + '/policy.txt'));
 
     robot.error (err, res) ->
       robot.logger.error "DOES NOT COMPUTE"
