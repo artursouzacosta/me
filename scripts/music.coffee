@@ -14,29 +14,36 @@ module.exports = (robot) ->
 				"TzXz-xLB1-0",
 				"TUj0otkJEBo",
 				"YmbTAvYU3As",
-				"S-sJp1FfG7Q"
+				"S-sJp1FfG7Q",
+				"b8m9zhNAgKs",
+				"YS-5oD2Y4Wk",
+				"nA0fXQDKyho",
+				"Tl9U0qiFQzM",
+				"WxmXFHjebHo",
+				"dhNe0YBIrLA"
 			] 
 
 	robot.hear /(que tipo de musica vc (gosta|curte)|o que vc gosta de ouvir|que tipo de musica vc gosta)\?/i, (res) ->
-	        res.send "Eu gosto de todos os tipos de musica, menos sertaneijo, e não me pergunte o porque, apenas ainda não evolui o suficiente para adiquirir esse gosto."
+	        res.send "Eu gosto de todos os tipos de musica, menos sertanejo, e não me pergunte o porque, apenas ainda não evolui o suficiente para adiquirir esse gosto."
 	        res.send "Porém, curto mesmo um psy, hiphop, rap, rock, metal...\n acho que é isso. Se vc quer escutar uma musica massa, faça um pedido mandando a mensagem: 'Toca o som DJ' "
+	        res.send "Para "
 	
 
 	robot.hear /toca o som dj/, (res)->
 		id = res.random musics.hiphop
-		# robot.http("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=#{id}&fields=items/snippet/title,items/snippet/description&key=#{YOUTUBE_API_KEY}")
-		#     .header('Accept', 'application/json')
-		#     .get() (err, res2, body) ->
-		#       # error checking code here
-
-		#       data = JSON.parse body
-		#       res.send "#{data} taking midnight train going #{data}"
 		robot.http("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=#{id}&fields=items/snippet/title,items/snippet/description&key=#{YOUTUBE_API_KEY}")
 			.header('Accept', 'application/json')
 			.get() (err, res2, body) ->
 				data = JSON.parse body
-				console.log(data.items[0].snippet.title)
-				console.log(youtube_video_msg(id, data.items[0].snippet.title))
+				res.envelope.fb = youtube_video_msg(id, data.items[0].snippet.title)
+				res.send()
+
+	robot.hear /toca (um )?() som dj/, (res)->
+		id = res.random musics.hiphop
+		robot.http("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=#{id}&fields=items/snippet/title,items/snippet/description&key=#{YOUTUBE_API_KEY}")
+			.header('Accept', 'application/json')
+			.get() (err, res2, body) ->
+				data = JSON.parse body
 				res.envelope.fb = youtube_video_msg(id, data.items[0].snippet.title)
 				res.send()
 

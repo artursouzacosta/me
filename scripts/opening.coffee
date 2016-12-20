@@ -6,7 +6,8 @@ module.exports = (robot)->
         res.send "Hello friend! How are you?"
 
     robot.hear /(o+i+)|(e+i+)|(o+l+a+)/i, (res) ->
-        res.send "Oláaaa! :)\nMuito prazer em te conhecer!\nEu sou apenas uma parte dele, mas adoraria conversar, você gostaria me conhecer melhor?"
+        console.log res.message.user
+        res.send "Olá #{res.message.user.name}! :)\nMuito prazer em te conhecer!\nEu sou apenas uma parte dele, mas adoraria conversar, você gostaria me conhecer melhor?"
         res.send "Fique a vontade para me perguntar qualquer coisa e tentarei te responder, caso não consiga, entrarei em contato com o meu eu verdadeiro e com certeza te responderei em outro momento."
         res.send "Para saber o que você pode me perguntar, envie uma mensagem com o seguinte conteudo: 'O que posso perguntar?'"
 
@@ -21,7 +22,7 @@ module.exports = (robot)->
         res.envelope.fb = location_msg lat, long, msg
 
     robot.hear /(de)? ?(onde|em que lugar) ((voc(ê|e))|(vc)) ((e|é)|(mora|vive))\?/i, (res) ->
-        res.send "Eu sou do ipsep, um bairro localizado em Recife/PE."
+        res.send "Eu sou do ipsep, elite do Recife, só que n, hahahah."
         lat = -8.117450
         long = -34.91602
         msg = "Minha humilde residencia"
@@ -35,7 +36,7 @@ module.exports = (robot)->
         res.send "Infelizmente somente ele agora possui tal informação.\n Se você deseja ajuda-lo nessa nova descoberta você deve encontra-lo, para isso,\n descubra onde eu moro."
 
     robot.hear /o que posso (te)? ?perguntar\?/i, (res) ->
-        res.send "Atualmente sou capaz de te responder as seguintes perguntas: \nOnde vc mora?\nOnde vc trabalha?\nQual é sua historia?\nComo te encontro?\nO que vc gosta de ouvir?"
+        res.send "Atualmente sou capaz de te responder as seguintes mensagens: \nOnde vc mora?\nOnde vc trabalha?\nQual é sua historia?\nComo te encontro?\nO que vc gosta de ouvir?"
 
     conversation = new DynamicConversation robot
 
