@@ -5,8 +5,7 @@ module.exports = (robot)->
     robot.hear /(h+i+)|(h+e+l+o+)/i, (res) ->
         res.send "Hello friend! How are you?"
 
-    robot.hear /(o+i+)|(e+i+)|(o+l+a+)/i, (res) ->
-        console.log res.message.user
+    robot.hear /^(o+i+)|(e+i+)|(o+l+a+)/i, (res) ->
         res.send "Olá #{res.message.user.name}! :)\nMuito prazer em te conhecer!\nEu sou apenas uma parte dele, mas adoraria conversar, você gostaria me conhecer melhor?"
         res.send "Fique a vontade para me perguntar qualquer coisa e tentarei te responder, caso não consiga, entrarei em contato com o meu eu verdadeiro e com certeza te responderei em outro momento."
         res.send "Para saber o que você pode me perguntar, envie uma mensagem com o seguinte conteudo: 'O que posso perguntar?'"

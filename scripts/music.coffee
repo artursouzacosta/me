@@ -26,7 +26,6 @@ module.exports = (robot) ->
 	robot.hear /(que tipo de musica vc (gosta|curte)|o que vc gosta de ouvir|que tipo de musica vc gosta)\?/i, (res) ->
 	        res.send "Eu gosto de todos os tipos de musica, menos sertanejo, e não me pergunte o porque, apenas ainda não evolui o suficiente para adiquirir esse gosto."
 	        res.send "Porém, curto mesmo um psy, hiphop, rap, rock, metal...\n acho que é isso. Se vc quer escutar uma musica massa, faça um pedido mandando a mensagem: 'Toca o som DJ' "
-	        res.send "Para "
 	
 
 	robot.hear /toca o som dj/, (res)->
@@ -38,14 +37,14 @@ module.exports = (robot) ->
 				res.envelope.fb = youtube_video_msg(id, data.items[0].snippet.title)
 				res.send()
 
-	robot.hear /toca (um )?() som dj/, (res)->
-		id = res.random musics.hiphop
-		robot.http("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=#{id}&fields=items/snippet/title,items/snippet/description&key=#{YOUTUBE_API_KEY}")
-			.header('Accept', 'application/json')
-			.get() (err, res2, body) ->
-				data = JSON.parse body
-				res.envelope.fb = youtube_video_msg(id, data.items[0].snippet.title)
-				res.send()
+	# robot.hear /toca (um )?() som dj/, (res)->
+	# 	id = res.random musics.hiphop
+	# 	robot.http("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=#{id}&fields=items/snippet/title,items/snippet/description&key=#{YOUTUBE_API_KEY}")
+	# 		.header('Accept', 'application/json')
+	# 		.get() (err, res2, body) ->
+	# 			data = JSON.parse body
+	# 			res.envelope.fb = youtube_video_msg(id, data.items[0].snippet.title)
+	# 			res.send()
 
 	youtube_video_msg = (id, msg = "Musica massa!")->
 		richMsg:
