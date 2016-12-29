@@ -1,0 +1,12 @@
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type":"greeting",
+  "greeting":{
+    "text":"Timeless apparel for the masses."
+  }
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=PAGE_ACCESS_TOKEN"
+
+curl -X POST -H "Content-Type: application/json" -d '{
+  "setting_type" : "domain_whitelisting",
+  "whitelisted_domains" : ["https://www.cers.com.br/"],
+  "domain_action_type": "add"
+}' "https://graph.facebook.com/v2.6/me/thread_settings?access_token=EAAZASlcsoXDkBAInS5ij00G4s44YjcvkfTZCGltdzTsHjgcGEiA6YNkS73DDQTntPH2TNxomn7ynz84ThDQ7EgOeILFuuJTzptv0GocJHZBgAIcH4xu7xUgGEZBIZAGzpffrknpIAzBZA3x8ZA6ErjU4ckj0tCRcvUP5kZCHBioM4QZDZD"
