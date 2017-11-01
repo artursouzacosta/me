@@ -7,7 +7,7 @@ module.exports = (robot)->
 	String::lstrip = -> @replace /^\s+/g, ""
 	String::rstrip = -> @replace /\s+$/g, ""
 
-	access_token = "access_token=812a4de1444927a45783ae83381cfe24"
+	access_token = "access_token=169dc2d5d766adaefb25f29fd6cf5a8d"
 	
 	api_base_url = "http://localhost:8080/"
 	
@@ -22,8 +22,7 @@ module.exports = (robot)->
 	robot.brain.data.groups = null
 
 	robot.hear /^(o+i+)|(e+i+)|(o+l+a+)/i, (res) ->
-		res.send "Olá #{res.message.user.name}!\nSeja bem vindo ao CERS Cursos online.\nEstou aqui para te ajudar a encontrar o que você procura, dentro do universo CERS.\n\
-		Para saber em que posso te ajudar envie a mensagem: '#ajuda'"
+		res.send "Olá #{res.message.user.name}!\nSeja bem vindo ao CERS Cursos online.\nEstou aqui para te ajudar a encontrar o que você procura, dentro do universo CERS.\n\Para saber em que posso te ajudar envie a mensagem: '#ajuda'"
 
 	robot.hear /^ *#ajuda *$/i, (res) ->
 		res.send "#{res.message.user.name}, atualmente posso te ajudar em:\n#cursos\n#promocoes\n#noticias\n#compras"
@@ -36,7 +35,7 @@ module.exports = (robot)->
 				res.send "Para listar cursos de uma área especifica, envie: '#cursos NOME_AREA'"
 
 
-	robot.hear /^ *#cursos (.*)/i, (res) ->
+	robot.hear /^ *#cursos (.+)/i, (res) ->
 
 		group = res.match[1].strip()
 
